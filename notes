@@ -1,0 +1,5 @@
+#flutter web
+flutter run -d chrome --no-sound-null-safety --web-renderer html
+
+#keytool
+keytool -exportcert -list -v -alias androiddebugkey -keystore C:\Users\dwipu\.android\debug.keystore

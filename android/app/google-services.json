@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "654392344128",
+    "project_id": "pendaftaran-pasien-rumah-10dc4",
+    "storage_bucket": "pendaftaran-pasien-rumah-10dc4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654392344128:android:4cf462b34e4ed39c7929a5",
+        "android_client_info": {
+          "package_name": "com.kesehatan.aplikasi_pendaftaran_pasien"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654392344128-8u0877mh5hckgr58tfgbqgs590c61tf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnjSk804UuSTff5syxztscSxagQklAZR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654392344128-8u0877mh5hckgr58tfgbqgs590c61tf2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
