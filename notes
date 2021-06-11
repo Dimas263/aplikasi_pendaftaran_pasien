@@ -3,3 +3,11 @@ flutter run -d chrome --no-sound-null-safety --web-renderer html
 
 #keytool
 keytool -exportcert -list -v -alias androiddebugkey -keystore C:\Users\dwipu\.android\debug.keystore
+
+#jika keytool tidak ditemukan
+
+keytool -list -v -keystore debug.keystore
+
+keytool -genkey -v -keystore debug.keystore -alias androiddebugkey -keyalg RSA -validity 10000
+
+keytool -list -v -keystore debug.keystore
