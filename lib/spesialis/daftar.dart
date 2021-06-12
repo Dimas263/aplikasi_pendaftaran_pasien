@@ -14,6 +14,10 @@ import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 
+class SpesialisFirestore{
+
+}
+
 class JanjiView extends StatefulWidget {
   const JanjiView({Key? key, required User user})
       : _user = user,
@@ -46,7 +50,6 @@ class _JanjiViewState extends State<JanjiView> {
   final waktu_janji = TextEditingController();
   final format_tanggal = DateFormat("dd-MM-yyyy");
   final format_waktu = DateFormat("HH:mm");
-
 
   @override
   Widget build(BuildContext context) {
@@ -169,97 +172,36 @@ class _JanjiViewState extends State<JanjiView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
-                      child: Flexible(
-                        child: StreamBuilder<QuerySnapshot>(
-                          stream: Cikarang.read_nama_spesialis(),
-                          builder: (context, snapshot) {
-                            if (snapshot.hasError) {
-                              return Text(
-                                'Error',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: HexColor('#ed1c24'),
-                                ),
-                              );
-                            }
-                            else if (snapshot.hasData || snapshot.data != null) {
-                              return ListView.separated(
-                                shrinkWrap: true,
-                                separatorBuilder: (context, index) => SizedBox(height: 16.0),
-                                itemCount: snapshot.data!.docs.length,
-                                itemBuilder: (context, index) {
-                                  var noteInfo = snapshot.data!.docs[index].data();
-
-                                  String nama = noteInfo['nama'];
-                                  String gambar = noteInfo['gambar'];
-
-                                  final List<Map<String, dynamic>> _spesialis = [
-                                    {
-                                      'value': nama,
-                                      'label': nama,
-                                      'icon': Image.network(gambar),
-                                    }
-                                  ].toList();
-                                  return Container(
-                                    child: SelectFormField(
-                                      type: SelectFormFieldType.dialog,
-                                      controller: jenis_spesialis,
-                                      items: _spesialis,
-                                      onChanged: (val) => print(val),
-                                      onSaved: (val) => print(val),
-                                      decoration: new InputDecoration(
-                                        hintText: "Dokter Umum",
-                                        labelText: "Spesialis",
-                                        border: OutlineInputBorder(
-                                            borderRadius: new BorderRadius.circular(5.0)),
-                                      ),
-                                      validator: (value) {
-                                        if (value!.isEmpty) {
-                                          return 'Spesialis tidak boleh kosong';
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                  );
-                                },
-                              );
-                            }
-                            return Center(
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  HexColor('#ed1c24'),
-                                ),
-                              ),
-                            );
+                      child: SelectFormField(
+                        type: SelectFormFieldType.dialog,
+                        controller: jenis_spesialis,
+                        items: [
+                          {
+                            'value': 'namaaa',
+                            'label': 'namaaa',
+                            'icon': Image.network('gambar'),
                           },
+                        ].toList(),
+                        onChanged: (val) => print(val),
+                        onSaved: (val) => print(val),
+                        decoration: new InputDecoration(
+                          hintText: "Dokter Umum",
+                          labelText: "Spesialis",
+                          border: OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(5.0)),
                         ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Spesialis tidak boleh kosong';
+                          }
+                          return null;
+                        },
                       ),
                     ),
-                    /*
-                    SelectFormField(
-                      type: SelectFormFieldType.dropdown,
-                      controller: jenis_spesialis,
-                      items: _spesialis,
-                      onChanged: (val) => print(val),
-                      onSaved: (val) => print(val),
-                      decoration: new InputDecoration(
-                        hintText: "Dokter Umum",
-                        labelText: "Spesialis",
-                        border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(5.0)),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Spesialis tidak boleh kosong';
-                        }
-                        return null;
-                      },
-                    ),
-                    */
                     Padding(
                       padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
                       child: SelectFormField(
+                        type: SelectFormFieldType.dialog,
                         controller: nama_dokter,
                         items: [
                           {
@@ -267,7 +209,17 @@ class _JanjiViewState extends State<JanjiView> {
                             'label': '_nama_dokter',
                             'icon': Image.network('_gambar_dokter'),
                           },
-                        ],
+                          {
+                            'value': '_nama_dokter',
+                            'label': '_nama_dokter',
+                            'icon': Image.network('_gambar_dokter'),
+                          },
+                          {
+                            'value': '_nama_dokter',
+                            'label': '_nama_dokter',
+                            'icon': Image.network('_gambar_dokter'),
+                          },
+                        ].toList(),
                         onChanged: (val) => print(val),
                         onSaved: (val) => print(val),
                         decoration: new InputDecoration(
