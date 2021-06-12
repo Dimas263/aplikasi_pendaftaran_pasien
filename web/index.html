@@ -21,12 +21,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="aplikasi_pendaftaran_pasien">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" href="../images/logo/logo.png">
 
-  <title>aplikasi_pendaftaran_pasien</title>
+  <title>aplikasi pendaftaran pasien</title>
   <link rel="manifest" href="manifest.json">
 </head>
-<body>
+<>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -95,7 +95,9 @@
     }
   </script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -118,6 +120,25 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   </script>
+  <script>
+   // Initialize Firebase with a default Firebase project
+  firebase.initializeApp(firebaseConfig);
 
+  // Initialize Firebase with a second Firebase project
+  var otherProject = firebase.initializeApp(otherProjectFirebaseConfig, "other");
+
+  console.log(firebase.app().name);  // "[DEFAULT]"
+  console.log(otherProject.name);    // "otherProject"
+
+  // Use the shorthand notation to access the default project's Firebase services
+  var defaultStorage = firebase.storage();
+  var defaultFirestore = firebase.firestore();
+
+  // Use the otherProject variable to access the second project's Firebase services
+  var otherStorage = otherProject.storage();
+  var otherFirestore = otherProject.firestore();
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+  <script defer src="./init-firebase.js"></script>
 </body>
 </html>

@@ -2,15 +2,16 @@
 
 Aplikasi pendaftaran pasien di rumah sakit berbasis android dengan flutter dan firebase
 
-## Getting Started
+Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
-This project is a starting point for a Flutter application.
+<!-- <img src="images/pendaftaran_pasien.gif" alt="alt text" width="200"/> -->
 
-A few resources to get you started if this is your first Flutter project:
+## informasi tambahan
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Aplikasi ini saya buat dengan menggunakan Flutter
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Kunjungi link dibawah ini untuk belajar bagaimana cara menggunakan flutter
+
+- [Lab: Pelajari cara membuat aplikasi Flutter](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Pelajari contoh project Flutter](https://flutter.dev/docs/cookbook)
+- [online documentation](https://flutter.dev/docs)

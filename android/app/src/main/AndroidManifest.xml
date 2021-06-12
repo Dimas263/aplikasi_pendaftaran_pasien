@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kesehatan.aplikasi_pendaftaran_pasien">
    <application
-        android:label="aplikasi_pendaftaran_pasien"
+        android:label="Rumah Sakit"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
