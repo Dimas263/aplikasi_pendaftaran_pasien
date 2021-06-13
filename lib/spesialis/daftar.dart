@@ -172,6 +172,28 @@ class _JanjiViewState extends State<JanjiView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
+                      child: StreamBuilder<QuerySnapshot>(
+                        stream: Cikarang.read_nama_spesialis(),
+                        builder: (context, snapshot) {
+                          return ListView.separated(
+                            shrinkWrap: true,
+                            separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              var noteInfo = snapshot.data!.docs[index].data();
+                              String docID = snapshot.data!.docs[index].id;
+                              String nama = noteInfo['nama'];
+                              String gambar = noteInfo['gambar'];
+                              String jumlah = noteInfo['jumlah'];
+
+                              return Container();
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
                       child: SelectFormField(
                         type: SelectFormFieldType.dialog,
                         controller: jenis_spesialis,
@@ -181,7 +203,7 @@ class _JanjiViewState extends State<JanjiView> {
                             'label': 'namaaa',
                             'icon': Image.network('gambar'),
                           },
-                        ].toList(),
+                        ],
                         onChanged: (val) => print(val),
                         onSaved: (val) => print(val),
                         decoration: new InputDecoration(
@@ -219,7 +241,7 @@ class _JanjiViewState extends State<JanjiView> {
                             'label': '_nama_dokter',
                             'icon': Image.network('_gambar_dokter'),
                           },
-                        ].toList(),
+                        ],
                         onChanged: (val) => print(val),
                         onSaved: (val) => print(val),
                         decoration: new InputDecoration(
