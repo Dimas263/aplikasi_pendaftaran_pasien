@@ -1,9 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:aplikasi_pendaftaran_pasien/auth/auth.dart';
 import 'package:aplikasi_pendaftaran_pasien/auth/sign_in.dart';
 import 'package:aplikasi_pendaftaran_pasien/database/firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class AboutView extends StatefulWidget {
   const AboutView({Key? key, required User user})

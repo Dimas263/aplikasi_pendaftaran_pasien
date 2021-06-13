@@ -1,16 +1,13 @@
-import 'dart:html';
 
+import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/daftar.dart';
+import 'package:aplikasi_pendaftaran_pasien/spesialis/deskripsi.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/deskripsi.dart';
 import 'package:search_page/search_page.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
-import 'package:badges/badges.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/deskripsi.dart';
 
 class DataDokter {
   final String gambar, nama, spesialis;
@@ -62,7 +59,6 @@ class CariView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   var noteInfo = snapshot.data!.docs[index].data();
 
-                  String docID = snapshot.data!.docs[index].id;
                   String nama = noteInfo['nama'];
                   String gambar = noteInfo['gambar'];
                   String spesialis = noteInfo['spesialis'];

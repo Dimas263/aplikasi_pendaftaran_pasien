@@ -1,12 +1,11 @@
+import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
+import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 import 'package:badges/badges.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 
 class SpesialisView extends StatelessWidget {
 
@@ -41,7 +40,6 @@ class SpesialisView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   var noteInfo = snapshot.data!.docs[index].data();
 
-                  String docID = snapshot.data!.docs[index].id;
                   String nama = noteInfo['nama'];
                   String gambar = noteInfo['gambar'];
                   String jumlah = noteInfo['jumlah'];

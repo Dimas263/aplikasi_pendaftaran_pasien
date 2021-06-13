@@ -1,9 +1,9 @@
+import 'package:aplikasi_pendaftaran_pasien/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:aplikasi_pendaftaran_pasien/main.dart';
 
 class Authentication {
   static SnackBar customSnackBar({required String content}) {

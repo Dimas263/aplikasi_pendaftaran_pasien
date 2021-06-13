@@ -1,3 +1,9 @@
+import 'package:aplikasi_pendaftaran_pasien/auth/sign_in.dart';
+import 'package:aplikasi_pendaftaran_pasien/home/home.dart';
+import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
+import 'package:aplikasi_pendaftaran_pasien/profil/view.dart';
+import 'package:aplikasi_pendaftaran_pasien/riwayat/view.dart';
+import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,12 +13,6 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:aplikasi_pendaftaran_pasien/auth/sign_in.dart';
-import 'package:aplikasi_pendaftaran_pasien/home/home.dart';
-import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
-import 'package:aplikasi_pendaftaran_pasien/profil/view.dart';
-import 'package:aplikasi_pendaftaran_pasien/riwayat/view.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:url_launcher/url_launcher.dart';
 

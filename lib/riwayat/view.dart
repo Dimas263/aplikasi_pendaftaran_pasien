@@ -1,13 +1,10 @@
+import 'package:aplikasi_pendaftaran_pasien/database/firestore.dart';
 import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:aplikasi_pendaftaran_pasien/database/firestore.dart';
-import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/daftar.dart';
 
 class RiwayatView extends StatefulWidget {
   const RiwayatView({Key? key, required User user})
@@ -29,7 +26,6 @@ class _RiwayatViewState extends State<RiwayatView> {
     super.initState();
   }
 
-  static get user => FirebaseAuth.instance.currentUser;
 
   late String dokterId;
   late String gambardokterId;
@@ -79,7 +75,6 @@ class _RiwayatViewState extends State<RiwayatView> {
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     var noteInfo = snapshot.data!.docs[index].data();
-                    String docID = snapshot.data!.docs[index].id;
                     String nama = noteInfo['nama'];
                     String lahir = noteInfo['lahir'];
                     String ponsel = noteInfo['ponsel'];

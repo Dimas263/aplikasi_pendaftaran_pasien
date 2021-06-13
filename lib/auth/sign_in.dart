@@ -1,8 +1,8 @@
+import 'package:aplikasi_pendaftaran_pasien/auth/auth.dart';
+import 'package:aplikasi_pendaftaran_pasien/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:aplikasi_pendaftaran_pasien/auth/auth.dart';
-import 'package:aplikasi_pendaftaran_pasien/main.dart';
 
 class LoginView extends StatelessWidget {
   /*

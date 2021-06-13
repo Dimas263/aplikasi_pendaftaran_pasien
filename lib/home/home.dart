@@ -1,19 +1,17 @@
+import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
+import 'package:aplikasi_pendaftaran_pasien/home/hospital.dart';
 import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
+import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
+import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:badges/badges.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:aplikasi_pendaftaran_pasien/home/hospital.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/daftar.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key, required User user})
@@ -403,8 +401,6 @@ class _HomeViewState extends State<HomeView> {
                                   itemCount: snapshot.data!.docs.length,
                                   itemBuilder: (context, index) {
                                     var noteInfo = snapshot.data!.docs[index].data();
-
-                                    String docID = snapshot.data!.docs[index].id;
                                     String nama = noteInfo['nama'];
                                     String gambar = noteInfo['gambar'];
                                     String jumlah = noteInfo['jumlah'];
