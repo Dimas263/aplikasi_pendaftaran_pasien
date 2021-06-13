@@ -13,9 +13,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 get user => FirebaseAuth.instance.currentUser;
 
 class DeskripsiDokter extends StatelessWidget {
+
   final String dokterId;
+  final String gambardokterId;
+  final String spesialisdokterId;
+
   DeskripsiDokter({
-    required this.dokterId
+    required this.dokterId,
+    required this.gambardokterId,
+    required this.spesialisdokterId
   });
 
   @override
@@ -64,7 +70,7 @@ class DeskripsiDokter extends StatelessWidget {
                   String jumat = noteInfo['jumat'];
                   String sabtu = noteInfo['sabtu'];
                   String minggu = noteInfo['minggu'];
-                  if (nama == dokterId) {
+                  if (nama == dokterId || gambar == gambardokterId || spesialis == spesialisdokterId) {
                     return Container(
                       margin: const EdgeInsets.only(left: 7.5,right: 7.5, top: 10, bottom: 5),
                       child: Card(
@@ -296,7 +302,7 @@ class DeskripsiDokter extends StatelessWidget {
                                     ),
                                     child: ListTile(
                                       onTap: () {
-                                        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: JanjiView(user: user)));
+                                        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: JanjiView(dokterId : dokterId, gambardokterId: gambardokterId, spesialisdokterId: spesialisdokterId)));
                                       },
                                       title: Text(
                                         'Buat Janji Dengan Dokter',

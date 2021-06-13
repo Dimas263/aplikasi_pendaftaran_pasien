@@ -35,6 +35,7 @@ class SpesialisView extends StatelessWidget {
                       fit: BoxFit.cover)
               ),
               child: ListView.separated(
+                shrinkWrap: true,
                 separatorBuilder: (context, index) => SizedBox(height: 16.0),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
@@ -45,40 +46,79 @@ class SpesialisView extends StatelessWidget {
                   String gambar = noteInfo['gambar'];
                   String jumlah = noteInfo['jumlah'];
 
-                  return Container(
-                    child: Card(
-                      margin: const EdgeInsets.only(top: 5, left: 10, right: 10,bottom: 5),
-                      color: HexColor('#ffffff'),
-                      elevation: 5.0,
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 80,
-                        child: ListTile(
-                          minVerticalPadding: 22,
-                          onTap: () {
-                            Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: DokterList(dokterId:nama)));
-                          },
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: 30,
-                            child: Image.network(gambar),
-                          ),
-                          title: Text(nama ?? 'defaiult'),
-                          trailing:  Badge(
-                            badgeContent: Text(
-                              jumlah ?? 'defaiult',
-                              style: TextStyle(
-                                color: HexColor('#ffffff'),
-                                fontWeight: FontWeight.bold,
-                              ),
+                  if (nama == 'Lihat Semua Dokter') {
+                    return Container(
+                      child: Card(
+                        margin: const EdgeInsets.only(top: 5, left: 10, right: 10,bottom: 5),
+                        color: HexColor('#ffffff'),
+                        elevation: 5.0,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 80,
+                          child: ListTile(
+                            minVerticalPadding: 22,
+                            onTap: () {
+                              Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: AllDokterList()));
+                            },
+                            leading: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 30,
+                              child: Image.network(gambar),
                             ),
-                            badgeColor: HexColor('#ed1c24'),
-                            child:  FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
+                            title: Text(nama),
+                            trailing:  Badge(
+                              badgeContent: Text(
+                                jumlah,
+                                style: TextStyle(
+                                  color: HexColor('#ffffff'),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              badgeColor: HexColor('#ed1c24'),
+                              child:  FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  );
+                    );
+                  }
+                  else if (nama != 'Lihat Semua Dokter'){
+                    return Container(
+                      child: Card(
+                        margin: const EdgeInsets.only(top: 5, left: 10, right: 10,bottom: 5),
+                        color: HexColor('#ffffff'),
+                        elevation: 5.0,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 80,
+                          child: ListTile(
+                            minVerticalPadding: 22,
+                            onTap: () {
+                              Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: DokterList(dokterId:nama)));
+                            },
+                            leading: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 30,
+                              child: Image.network(gambar),
+                            ),
+                            title: Text(nama),
+                            trailing:  Badge(
+                              badgeContent: Text(
+                                jumlah,
+                                style: TextStyle(
+                                  color: HexColor('#ffffff'),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              badgeColor: HexColor('#ed1c24'),
+                              child:  FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  return Container();
                 },
               ),
             ),

@@ -1,3 +1,5 @@
+import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
+import 'package:badges/badges.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -10,6 +12,8 @@ import 'package:aplikasi_pendaftaran_pasien/spesialis/daftar.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key, required User user})
@@ -47,6 +51,7 @@ class _HomeViewState extends State<HomeView> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
+                height: 150,
                 margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
                 child: CarouselSlider(
                   options: CarouselOptions(
@@ -139,7 +144,7 @@ class _HomeViewState extends State<HomeView> {
                     borderRadius: BorderRadius.circular(0.0),
                     splashColor: HexColor('#ed1c24'),
                     onTap: () {
-                      Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: JanjiView(user: user)));
+                      Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: CariView()));
                     },
                     child: SizedBox(
                       width: double.infinity,
@@ -169,6 +174,7 @@ class _HomeViewState extends State<HomeView> {
                 margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Card(
                       shape: RoundedRectangleBorder(
@@ -184,6 +190,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
                               margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
@@ -227,6 +234,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
                               margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
@@ -270,6 +278,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
                               margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
@@ -313,6 +322,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
                               margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
@@ -372,6 +382,69 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         Container(
                           margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
+                          child: StreamBuilder<QuerySnapshot>(
+                            stream: Cikarang.read_nama_spesialis_limit(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasError) {
+                                return Text(
+                                  'Error',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: HexColor('#ed1c24'),
+                                  ),
+                                );
+                              }
+                              else if (snapshot.hasData || snapshot.data != null) {
+                                return ListView.separated(
+                                  scrollDirection: Axis.vertical,
+                                  shrinkWrap: true,
+                                  separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                                  itemCount: snapshot.data!.docs.length,
+                                  itemBuilder: (context, index) {
+                                    var noteInfo = snapshot.data!.docs[index].data();
+
+                                    String docID = snapshot.data!.docs[index].id;
+                                    String nama = noteInfo['nama'];
+                                    String gambar = noteInfo['gambar'];
+                                    String jumlah = noteInfo['jumlah'];
+
+                                    return ListTile(
+                                      onTap: () {
+                                        Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: nama)));
+                                      },
+                                      leading: ClipOval(
+                                        child: Image.network(gambar, height: 50, width: 50, fit: BoxFit.contain,),
+                                      ),
+                                      title: Text(nama),
+                                      trailing: Badge(
+                                        badgeContent: Text(
+                                          jumlah,
+                                          style: TextStyle(
+                                            color: HexColor('#ffffff'),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        badgeColor: HexColor('#ed1c24'),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
+
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    HexColor('#ed1c24'),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        /*
+                        Container(
+                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -414,493 +487,10 @@ class _HomeViewState extends State<HomeView> {
                                   ),
                                 ),
                               ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/color/240/000000/medical-heart.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Jantung',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/doodle/240/000000/lungs--v1.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Paru',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/color/240/000000/throat.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'THT',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(top:5,right: 10.0,left: 10.0,bottom: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/dusk/48/000000/tooth.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Gigi',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/doodle/240/000000/visible.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Mata',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/officel/240/000000/skin.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Kulit',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/color/240/000000/xray.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Radiologi',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top:5,right: 10.0,left: 10.0,bottom: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/color/240/000000/spleen.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              'Penyakit',
-                                              style: TextStyle(
-                                                  color: HexColor('#005194'),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 10
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            Text(
-                                              'Dalam',
-                                              style: TextStyle(
-                                                  color: HexColor('#005194'),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 10
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/cotton/48/000000/brain-3.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              'Bedah',
-                                              style: TextStyle(
-                                                  color: HexColor('#005194'),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 10
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            Text(
-                                              'Syaraf',
-                                              style: TextStyle(
-                                                  color: HexColor('#005194'),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 10
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/fluent/48/000000/child-safe-zone.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Anak',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/cotton/240/000000/doctor-skin-type-2.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              'Bedah',
-                                              style: TextStyle(
-                                                  color: HexColor('#005194'),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 10
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            Text(
-                                              'Umum',
-                                              style: TextStyle(
-                                                  color: HexColor('#005194'),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 10
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        */
                         Container(
                           margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
                           child: ListTile(

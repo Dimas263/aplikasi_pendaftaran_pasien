@@ -135,18 +135,7 @@ class _AboutViewState extends State<AboutView> {
                       ),
                     ),
                     SizedBox(height: 24.0),
-                    Padding(
-                      padding: EdgeInsets.only(top: 5, left: 7.5, right: 7.5, bottom: 15),
-                      child: Text(
-                        'Kamu masuk melalui akun google, jika ingin keluar dari aplikasi, silahkan klik "Sign Out" dibawah ini',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          letterSpacing: 0.2,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+
                     SizedBox(height: 16.0),
                     _isSigningOut
                         ? CircularProgressIndicator(
@@ -177,7 +166,7 @@ class _AboutViewState extends State<AboutView> {
                       child: Padding(
                         padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                         child: Text(
-                          'Sign Out',
+                          'Keluar',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,

@@ -14,29 +14,17 @@ import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 
-class SpesialisFirestore{
+class JanjiView extends StatelessWidget {
 
-}
+  final String dokterId;
+  final String gambardokterId;
+  final String spesialisdokterId;
 
-class JanjiView extends StatefulWidget {
-  const JanjiView({Key? key, required User user})
-      : _user = user,
-        super(key: key);
-
-  final User _user;
-  @override
-  _JanjiViewState createState() => _JanjiViewState();
-}
-
-class _JanjiViewState extends State<JanjiView> {
-  late User _user;
-
-  @override
-  void initState() {
-    _user = widget._user;
-
-    super.initState();
-  }
+  JanjiView({
+    required this.dokterId,
+    required this.gambardokterId,
+    required this.spesialisdokterId
+  });
 
   static get user => FirebaseAuth.instance.currentUser;
 
@@ -58,7 +46,7 @@ class _JanjiViewState extends State<JanjiView> {
         brightness: Brightness.dark,
         elevation: 5.0,
         centerTitle: true,
-        title: Text('Data Dokter'),
+        title: Text('Buat Janji Dengan Dokter'),
         backgroundColor: HexColor('#ed1c24'),
       ),
       body: Container(
@@ -172,42 +160,19 @@ class _JanjiViewState extends State<JanjiView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
-                      child: StreamBuilder<QuerySnapshot>(
-                        stream: Cikarang.read_nama_spesialis(),
-                        builder: (context, snapshot) {
-                          return ListView.separated(
-                            shrinkWrap: true,
-                            separatorBuilder: (context, index) => SizedBox(height: 16.0),
-                            itemCount: snapshot.data!.docs.length,
-                            itemBuilder: (context, index) {
-                              var noteInfo = snapshot.data!.docs[index].data();
-                              String docID = snapshot.data!.docs[index].id;
-                              String nama = noteInfo['nama'];
-                              String gambar = noteInfo['gambar'];
-                              String jumlah = noteInfo['jumlah'];
-
-                              return Container();
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
                       child: SelectFormField(
-                        type: SelectFormFieldType.dialog,
+                        type: SelectFormFieldType.dropdown,
                         controller: jenis_spesialis,
                         items: [
                           {
-                            'value': 'namaaa',
-                            'label': 'namaaa',
-                            'icon': Image.network('gambar'),
+                            'value': spesialisdokterId,
+                            'label': spesialisdokterId,
                           },
                         ],
                         onChanged: (val) => print(val),
                         onSaved: (val) => print(val),
                         decoration: new InputDecoration(
-                          hintText: "Dokter Umum",
+                          hintText: spesialisdokterId,
                           labelText: "Spesialis",
                           border: OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(5.0)),
@@ -227,25 +192,15 @@ class _JanjiViewState extends State<JanjiView> {
                         controller: nama_dokter,
                         items: [
                           {
-                            'value': '_nama_dokter',
-                            'label': '_nama_dokter',
-                            'icon': Image.network('_gambar_dokter'),
-                          },
-                          {
-                            'value': '_nama_dokter',
-                            'label': '_nama_dokter',
-                            'icon': Image.network('_gambar_dokter'),
-                          },
-                          {
-                            'value': '_nama_dokter',
-                            'label': '_nama_dokter',
-                            'icon': Image.network('_gambar_dokter'),
+                            'value': dokterId,
+                            'label': dokterId,
+                            'icon': ClipOval(child: Image.network(gambardokterId, width: 55, height: 55, fit: BoxFit.cover,),),
                           },
                         ],
                         onChanged: (val) => print(val),
                         onSaved: (val) => print(val),
                         decoration: new InputDecoration(
-                          hintText: "dr. Dimas, SpA",
+                          hintText: dokterId,
                           labelText: "Nama Dokter",
                           border: OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(5.0)),
@@ -451,3 +406,4 @@ class _JanjiViewState extends State<JanjiView> {
     );
   }
 }
+

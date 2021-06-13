@@ -22,6 +22,14 @@ class Cikarang {
     return notesItemCollection.snapshots();
   }
 
+  //Todo: Read Nama Spesialis
+  static Stream<QuerySnapshot> read_nama_spesialis_limit() {
+    Query notesItemCollection =
+    _mainCollection.doc(omnicikarang).collection('nama_spesialis').orderBy('nama', descending: true).limit(8);
+
+    return notesItemCollection.snapshots();
+  }
+
   //Todo: Read Data Dokter
   static Stream<QuerySnapshot> read_spesialis() {
     Query notesItemCollection =
