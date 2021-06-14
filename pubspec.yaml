@@ -23,24 +23,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  flutter_launcher_icons:
-  flutter_launcher_name:
-  splash_screen_view:
-  ff_navigation_bar:
-  font_awesome_flutter:
-  hexcolor:
-  badges:
-  url_launcher:
-  carousel_slider:
-  page_transition:
-  datetime_picker_formfield:
-  select_form_field:
-  search_page:
-  firebase_auth:
-  google_sign_in:
-  firebase_core:
-  cloud_firestore: ^1.0.0
+  cupertino_icons: ^1.0.3
+  flutter_launcher_icons: ^0.8.1
+  flutter_launcher_name: ^0.0.1
+  splash_screen_view: ^2.0.1
+  ff_navigation_bar: ^0.1.5
+  font_awesome_flutter: ^9.1.0
+  hexcolor: ^2.0.4
+  badges: ^2.0.1
+  url_launcher: ^6.0.6
+  carousel_slider: ^3.0.0
+  page_transition: ^2.0.2
+  datetime_picker_formfield: ^2.0.0
+  select_form_field: ^2.0.0
+  search_page: ^2.0.0
+  firebase_auth: ^1.4.1
+  google_sign_in: ^5.0.4
+  firebase_core: ^1.3.0
+  cloud_firestore: ^1.0.7
 
 flutter_icons:
   android: true

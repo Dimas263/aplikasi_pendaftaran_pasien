@@ -63,37 +63,26 @@ class CariView extends StatelessWidget {
                   String gambar = noteInfo['gambar'];
                   String spesialis = noteInfo['spesialis'];
 
-                  List<DataDokter> dokter = [
-                    DataDokter(gambar, nama, spesialis, DeskripsiDokter(dokterId: nama, gambardokterId: gambar, spesialisdokterId: spesialis,))
-                  ];
-
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: dokter.length,
-                    itemBuilder: (context, index) {
-                      final DataDokter datadokter = dokter[index];
-                      return Card(
-                        margin: const EdgeInsets.only(top: 5, bottom: 5, left: 15, right: 15,),
-                        child: ListTile(
-                          onTap: () {
-                            Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: datadokter.page));
-                          },
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Image.network(datadokter.gambar),
-                          ),
-                          title: Text(datadokter.nama),
-                          subtitle: Text(
-                            datadokter.spesialis,
-                            style: TextStyle(
-                              color: HexColor('#005194'),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          trailing: FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
+                  return Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: DeskripsiDokter(dokterId: nama, gambardokterId: gambar, spesialisdokterId: spesialis,)));
+                      },
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image.network(gambar),
+                      ),
+                      title: Text(nama),
+                      subtitle: Text(
+                        spesialis,
+                        style: TextStyle(
+                          color: HexColor('#005194'),
+                          fontWeight: FontWeight.bold,
                         ),
-                      );
-                    },
+                      ),
+                      trailing: FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
+                    ),
                   );
                 },
               ),

@@ -67,7 +67,7 @@ class DeskripsiDokter extends StatelessWidget {
                   String jumat = noteInfo['jumat'];
                   String sabtu = noteInfo['sabtu'];
                   String minggu = noteInfo['minggu'];
-                  if (nama == dokterId || gambar == gambardokterId || spesialis == spesialisdokterId) {
+                  if (nama == dokterId && gambar == gambardokterId && spesialis == spesialisdokterId) {
                     return Container(
                       margin: const EdgeInsets.only(left: 7.5,right: 7.5, top: 10, bottom: 5),
                       child: Card(
@@ -87,7 +87,7 @@ class DeskripsiDokter extends StatelessWidget {
                                       gambar,
                                       width: 150,
                                       height: 150,
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),

@@ -128,6 +128,7 @@ class AllDokterList extends StatelessWidget {
                       fit: BoxFit.cover)
               ),
               child: ListView.separated(
+                shrinkWrap: true,
                 separatorBuilder: (context, index) => SizedBox(height: 16.0),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
