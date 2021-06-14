@@ -10,12 +10,17 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 ## Tampilan Aplikasi
 
 .
-<img src="document/review/splash.jpg" alt="alt text" width="150"/>
-<img src="document/review/home.jpg" alt="alt text" width="150"/>
-<img src="document/review/spesialis.jpg" alt="alt text" width="150"/>
-<img src="document/review/riwayat.jpg" alt="alt text" width="150"/>
-<img src="document/review/profil.jpg" alt="alt text" width="150"/>
-<img src="document/review/drawer.jpg" alt="alt text" width="150"/>
+<img src="document/review/1.jpg" alt="alt text" width="150"/>
+<img src="document/review/2.jpg" alt="alt text" width="150"/>
+<img src="document/review/3.jpg" alt="alt text" width="150"/>
+<img src="document/review/4.jpg" alt="alt text" width="150"/>
+<img src="document/review/5.jpg" alt="alt text" width="150"/>
+<img src="document/review/6.jpg" alt="alt text" width="150"/>
+<img src="document/review/7.jpg" alt="alt text" width="150"/>
+<img src="document/review/8.jpg" alt="alt text" width="150"/>
+<img src="document/review/9.jpg" alt="alt text" width="150"/>
+<img src="document/review/10.jpg" alt="alt text" width="150"/>
+
 
 ## Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://drive.google.com/drive/folders/147jUPS0sZAXasuU1KPQKXJZ0DqJBjidE)
