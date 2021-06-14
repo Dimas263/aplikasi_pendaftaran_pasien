@@ -9,8 +9,7 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 # Tampilan Aplikasi
 
-Berikut ini adalah tampilan awal aplikasi
-
+Aplikasi Pendaftaran Pasien ->
 <img src="document/review/splash.jpg" alt="alt text" width="200"/>
 <img src="document/review/home.jpg" alt="alt text" width="200"/>
 <img src="document/review/spesialis.jpg" alt="alt text" width="200"/>
