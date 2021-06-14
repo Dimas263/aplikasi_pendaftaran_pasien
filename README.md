@@ -10,12 +10,12 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 # Tampilan Aplikasi
 
 .
-<img src="document/review/splash.jpg" alt="alt text" width="100"/>
-<img src="document/review/home.jpg" alt="alt text" width="100"/>
-<img src="document/review/spesialis.jpg" alt="alt text" width="100"/>
-<img src="document/review/riwayat.jpg" alt="alt text" width="100"/>
-<img src="document/review/profil.jpg" alt="alt text" width="100"/>
-<img src="document/review/drawer.jpg" alt="alt text" width="100"/>
+<img src="document/review/splash.jpg" alt="alt text" width="150"/>
+<img src="document/review/home.jpg" alt="alt text" width="150"/>
+<img src="document/review/spesialis.jpg" alt="alt text" width="150"/>
+<img src="document/review/riwayat.jpg" alt="alt text" width="150"/>
+<img src="document/review/profil.jpg" alt="alt text" width="150"/>
+<img src="document/review/drawer.jpg" alt="alt text" width="150"/>
 
 ## informasi tambahan
 
