@@ -17,6 +17,9 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/review/profil.jpg" alt="alt text" width="150"/>
 <img src="document/review/drawer.jpg" alt="alt text" width="150"/>
 
+#Download Aplikasi
+[Download Aplikasi Aplikasi Pendaftaran Pasien](https://drive.google.com/drive/folders/147jUPS0sZAXasuU1KPQKXJZ0DqJBjidE)
+
 ## Informasi Tambahan
 
 Aplikasi ini saya buat dengan menggunakan Flutter
