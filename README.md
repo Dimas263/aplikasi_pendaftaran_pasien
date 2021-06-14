@@ -4,7 +4,7 @@ Aplikasi pendaftaran pasien di rumah sakit berbasis android dengan flutter dan f
 
 Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
-Review Aplikasi
+Aplikasi
 <img src="document/review/app.gif" alt="alt text" width="200"/>
 
 Tampilan Aplikasi
