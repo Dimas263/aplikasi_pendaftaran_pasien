@@ -25,12 +25,10 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 ## Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://drive.google.com/drive/folders/147jUPS0sZAXasuU1KPQKXJZ0DqJBjidE)
 
-## Informasi Tambahan
+## Flutter
 
 Aplikasi ini saya buat dengan menggunakan Flutter
 
-Kunjungi link dibawah ini untuk belajar bagaimana cara menggunakan flutter
-
-- [Pelajari cara membuat aplikasi Flutter](https://flutter.dev/docs/get-started/codelab)
-- [Pelajari contoh project Flutter](https://flutter.dev/docs/cookbook)
+- [Cara membuat aplikasi Flutter](https://flutter.dev/docs/get-started/codelab)
+- [Contoh project Flutter](https://flutter.dev/docs/cookbook)
 - [online documentation](https://flutter.dev/docs)
