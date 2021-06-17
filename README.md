@@ -23,7 +23,7 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 
 ## Download Aplikasi
-[Download Aplikasi Pendaftaran Pasien](https://drive.google.com/drive/folders/147jUPS0sZAXasuU1KPQKXJZ0DqJBjidE)
+[Download Aplikasi Pendaftaran Pasien](https://github.com/Dimas263/aplikasi_pendaftaran_pasien/blob/master/rumahsakit.apk)
 
 ## Flutter
 
