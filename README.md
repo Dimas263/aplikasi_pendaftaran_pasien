@@ -7,7 +7,7 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 ## Developer
 [Dimas Dwi Putra](https://github.com/Dimas263/)
 
-- I'm a Student of Information Technology From [University of Gunadarma](www.gunadarma.ac.id)
+- I'm a Student of Information Technology at [University of Gunadarma](www.gunadarma.ac.id)
 - Contact me via [whatsapp](wa.me/+6285811379583) if you want to work together, learn or something
 
 ## Aplikasi
