@@ -5,7 +5,8 @@ Aplikasi pendaftaran pasien di rumah sakit berbasis android dengan flutter dan f
 Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 ## Developer
-- [Dimas Dwi Putra](https://github.com/Dimas263/)
+[Dimas Dwi Putra](https://github.com/Dimas263/)
+
 - [I'm a Student of Information Technology at University of Gunadarma](https://www.gunadarma.ac.id)
 - [Whatsapp Me](https://wa.me/+6285811379583)
 
