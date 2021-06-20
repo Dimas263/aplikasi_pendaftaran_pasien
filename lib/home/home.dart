@@ -397,7 +397,7 @@ class _HomeViewState extends State<HomeView> {
                                 return ListView.separated(
                                   scrollDirection: Axis.vertical,
                                   shrinkWrap: true,
-                                  separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                                  separatorBuilder: (context, index) => SizedBox(height: 0.0),
                                   itemCount: snapshot.data!.docs.length,
                                   itemBuilder: (context, index) {
                                     var noteInfo = snapshot.data!.docs[index].data();

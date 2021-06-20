@@ -37,13 +37,14 @@ class DokterList extends StatelessWidget {
               backgroundColor: HexColor('#ed1c24'),
             ),
             body: Container(
+              height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("images/file/omnicikarang.png"),
                       fit: BoxFit.cover)
               ),
               child: ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                separatorBuilder: (context, index) => SizedBox(height: 0.0),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   var noteInfo = snapshot.data!.docs[index].data();
@@ -122,6 +123,7 @@ class AllDokterList extends StatelessWidget {
               backgroundColor: HexColor('#ed1c24'),
             ),
             body: Container(
+              height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("images/file/omnicikarang.png"),
@@ -129,7 +131,7 @@ class AllDokterList extends StatelessWidget {
               ),
               child: ListView.separated(
                 shrinkWrap: true,
-                separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                separatorBuilder: (context, index) => SizedBox(height: 0.0),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   var noteInfo = snapshot.data!.docs[index].data();

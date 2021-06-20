@@ -34,7 +34,7 @@ class SpesialisView extends StatelessWidget {
               ),
               child: ListView.separated(
                 shrinkWrap: true,
-                separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                separatorBuilder: (context, index) => SizedBox(height: 0.0),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   var noteInfo = snapshot.data!.docs[index].data();

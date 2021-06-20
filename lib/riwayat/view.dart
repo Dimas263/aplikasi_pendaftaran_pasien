@@ -71,7 +71,7 @@ class _RiwayatViewState extends State<RiwayatView> {
               else if (snapshot.hasData || snapshot.data != null) {
                 return ListView.separated(
                   shrinkWrap: true,
-                  separatorBuilder: (context, index) => SizedBox(height: 16.0),
+                  separatorBuilder: (context, index) => SizedBox(height: 0.0),
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     var noteInfo = snapshot.data!.docs[index].data();
