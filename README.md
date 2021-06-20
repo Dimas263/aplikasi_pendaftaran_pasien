@@ -7,8 +7,8 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 ## Developer
 [Dimas Dwi Putra](https://github.com/Dimas263/)
 
-- [Whatsapp Me](https://wa.me/+6285811379583)
-- [I'm a Student of Information Technology at University of Gunadarma](https://www.gunadarma.ac.id)
+- Contact Me Via [Whatsapp](https://wa.me/+6285811379583)
+- I'm a Student of Information Technology at [University of Gunadarma](https://www.gunadarma.ac.id)
 
 ## Aplikasi
 <img src="document/review/app.gif" alt="alt text" width="200"/>
