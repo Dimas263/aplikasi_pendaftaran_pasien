@@ -35,6 +35,6 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 Aplikasi ini saya buat dengan menggunakan Flutter
 
-- [Cara membuat aplikasi Flutter](https://flutter.dev/docs/get-started/codelab)
-- [Contoh project Flutter](https://flutter.dev/docs/cookbook)
-- [online documentation](https://flutter.dev/docs)
+- [How to make android and ios application with Flutter](https://flutter.dev/docs/get-started/codelab)
+- [Example of Flutter project](https://flutter.dev/docs/cookbook)
+- [Online documentation](https://flutter.dev/docs)
