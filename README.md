@@ -15,16 +15,16 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 ## Tampilan Aplikasi
 
 .
-<img src="document/review/1.jpg" alt="alt text" width="100"/>
-<img src="document/review/2.jpg" alt="alt text" width="100"/>
-<img src="document/review/3.jpg" alt="alt text" width="100"/>
-<img src="document/review/4.jpg" alt="alt text" width="100"/>
-<img src="document/review/5.jpg" alt="alt text" width="100"/>
-<img src="document/review/6.jpg" alt="alt text" width="100"/>
-<img src="document/review/7.jpg" alt="alt text" width="100"/>
-<img src="document/review/8.jpg" alt="alt text" width="100"/>
-<img src="document/review/9.jpg" alt="alt text" width="100"/>
-<img src="document/review/10.jpg" alt="alt text" width="100"/>
+<img src="document/review/1.jpg" alt="alt text" width="150"/>
+<img src="document/review/2.jpg" alt="alt text" width="150"/>
+<img src="document/review/3.jpg" alt="alt text" width="150"/>
+<img src="document/review/4.jpg" alt="alt text" width="150"/>
+<img src="document/review/5.jpg" alt="alt text" width="150"/>
+<img src="document/review/6.jpg" alt="alt text" width="150"/>
+<img src="document/review/7.jpg" alt="alt text" width="150"/>
+<img src="document/review/8.jpg" alt="alt text" width="150"/>
+<img src="document/review/9.jpg" alt="alt text" width="150"/>
+<img src="document/review/10.jpg" alt="alt text" width="150"/>
 
 
 ## Download Aplikasi
