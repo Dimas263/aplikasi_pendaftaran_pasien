@@ -27,6 +27,7 @@ class JanjiView extends StatelessWidget {
   final nama_pasien = TextEditingController();
   final tgl_lahir = TextEditingController();
   final no_telp = TextEditingController();
+  final jenis_pasien = TextEditingController();
   final jenis_spesialis = TextEditingController();
   final nama_dokter = TextEditingController();
   final janji_temu = TextEditingController();
@@ -136,6 +137,53 @@ class JanjiView extends StatelessWidget {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Nomor Ponsel tidak boleh kosong';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top:15.0, right: 15.0, left: 25.0,bottom: 5.0),
+                      child: SelectFormField(
+                        type: SelectFormFieldType.dropdown,
+                        controller: jenis_pasien,
+                        items: [
+                          {
+                            'value': 'Pribadi',
+                            'label': 'Pribadi',
+                          },
+                          {
+                            'value': 'BPJS',
+                            'label': 'BPJS',
+                          },
+                          {
+                            'value': 'Allianz',
+                            'label': 'Allianz',
+                          },
+                          {
+                            'value': 'Prudential',
+                            'label': 'Prudential',
+                          },
+                          {
+                            'value': 'Manulife',
+                            'label': 'Manulife',
+                          },
+                          {
+                            'value': 'Cigna',
+                            'label': 'Cigna',
+                          },
+                        ],
+                        onChanged: (val) => print(val),
+                        onSaved: (val) => print(val),
+                        decoration: new InputDecoration(
+                          hintText: 'BPJS',
+                          labelText: "Jenis Pasien",
+                          border: OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(5.0)),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Jenis Pasien tidak boleh kosong';
                           }
                           return null;
                         },
@@ -309,6 +357,10 @@ class JanjiView extends StatelessWidget {
                                       title: Text(no_telp.text),
                                     ),
                                     ListTile(
+                                      leading : Text('Jenis Pasien       :'),
+                                      title: Text(jenis_pasien.text),
+                                    ),
+                                    ListTile(
                                       title: Text(
                                         'Informasi Dokter',
                                         style: TextStyle(
@@ -351,6 +403,7 @@ class JanjiView extends StatelessWidget {
                                               nama: nama_pasien.text,
                                               lahir: tgl_lahir.text,
                                               ponsel: no_telp.text,
+                                              asuransi: jenis_pasien.text,
                                               spesialis: jenis_spesialis.text,
                                               dokter: nama_dokter.text,
                                               tanggal: janji_temu.text,

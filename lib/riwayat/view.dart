@@ -1,5 +1,6 @@
 import 'package:aplikasi_pendaftaran_pasien/database/firestore.dart';
 import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
+import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _RiwayatViewState extends State<RiwayatView> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, duration: Duration(seconds: 1), child: CariView()));
+          Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, duration: Duration(seconds: 1), child: SpesialisView()));
         },
         backgroundColor: HexColor('#ed1c24'),
         child: Icon(
@@ -74,10 +75,17 @@ class _RiwayatViewState extends State<RiwayatView> {
                   separatorBuilder: (context, index) => SizedBox(height: 0.0),
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
+                    //Todo: ID Antrian
+                    var id = snapshot.data!.docs[index].id;
+                    String documentid = id;
+
+                    var no_antrian = documentid.substring(documentid.length - 6);
+
                     var noteInfo = snapshot.data!.docs[index].data();
                     String nama = noteInfo['nama'];
                     String lahir = noteInfo['lahir'];
                     String ponsel = noteInfo['ponsel'];
+                    String asuransi = noteInfo['asuransi'];
                     String spesialis = noteInfo['spesialis'];
                     String dokter = noteInfo['dokter'];
                     String tanggal = noteInfo['tanggal'];
@@ -89,6 +97,26 @@ class _RiwayatViewState extends State<RiwayatView> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           ListTile(
+                            leading: Text(
+                              'No Antrian',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('#ed1c24'),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            title: Text(
+                              ': ' + no_antrian,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('#ed1c24'),
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          ListTile(
                             leading: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -97,7 +125,7 @@ class _RiwayatViewState extends State<RiwayatView> {
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
-                                    color: HexColor('#ed1c24'),
+                                    color: HexColor('#005194'),
                                   ),
                                   textAlign: TextAlign.left,
                                 ),
@@ -143,6 +171,15 @@ class _RiwayatViewState extends State<RiwayatView> {
                                   textAlign: TextAlign.left,
                                 ),
                                 Text(
+                                  "Pasien " + asuransi,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: HexColor('#000000'),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                Text(
                                   'Spesialis'+' '+spesialis,
                                   style: TextStyle(
                                     fontSize: 12,
@@ -163,6 +200,7 @@ class _RiwayatViewState extends State<RiwayatView> {
                               ],
                             ),
                           ),
+                          Divider(color: HexColor('#005194'),),
                         ],
                       ),
                     );

@@ -142,7 +142,7 @@ class _HomeViewState extends State<HomeView> {
                     borderRadius: BorderRadius.circular(0.0),
                     splashColor: HexColor('#ed1c24'),
                     onTap: () {
-                      Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: CariView()));
+                      Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: SpesialisView()));
                     },
                     child: SizedBox(
                       width: double.infinity,
