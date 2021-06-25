@@ -26,6 +26,10 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/review/8.jpg" alt="alt text" width="150"/>
 <img src="document/review/9.jpg" alt="alt text" width="150"/>
 <img src="document/review/10.jpg" alt="alt text" width="150"/>
+<img src="document/review/11.jpg" alt="alt text" width="150"/>
+<img src="document/review/12.jpg" alt="alt text" width="150"/>
+<img src="document/review/13.jpg" alt="alt text" width="150"/>
+<img src="document/review/14.jpg" alt="alt text" width="150"/>
 
 
 ## Download Aplikasi
