@@ -331,109 +331,111 @@ class JanjiView extends StatelessWidget {
                               return AlertDialog(
                                 // Retrieve the text the that user has entered by using the
                                 // TextEditingController.
-                                content: Column(
-                                  children: [
-                                    ListTile(
-                                      title: Text(
-                                        'Informasi Pasien',
-                                        style: TextStyle(
-                                            color: HexColor('#ed1c24'),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      ListTile(
+                                        title: Text(
+                                          'Informasi Pasien',
+                                          style: TextStyle(
+                                              color: HexColor('#ed1c24'),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18
+                                          ),
+                                          textAlign: TextAlign.center,
                                         ),
-                                        textAlign: TextAlign.center,
                                       ),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Nama                 :'),
-                                      title: Text(nama_pasien.text),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Tanggal Lahir   :'),
-                                      title: Text(tgl_lahir.text),
-                                    ),
-                                    ListTile(
-                                      leading : Text('No.Telepon       :'),
-                                      title: Text(no_telp.text),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Jenis Pasien       :'),
-                                      title: Text(jenis_pasien.text),
-                                    ),
-                                    ListTile(
-                                      title: Text(
-                                        'Informasi Dokter',
-                                        style: TextStyle(
-                                            color: HexColor('#ed1c24'),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18
-                                        ),
-                                        textAlign: TextAlign.center,
+                                      ListTile(
+                                        leading : Text('Nama                 :'),
+                                        title: Text(nama_pasien.text),
                                       ),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Spesialis           :'),
-                                      title: Text(jenis_spesialis.text),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Nama Dokter    :'),
-                                      title: Text(nama_dokter.text),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Janji Temu        :'),
-                                      title: Text(janji_temu.text),
-                                    ),
-                                    ListTile(
-                                      leading : Text('Waktu Temu      :'),
-                                      title: Text(waktu_janji.text),
-                                    ),
-                                    ListTile(
-                                      title: RaisedButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(15.0),
+                                      ListTile(
+                                        leading : Text('Tanggal Lahir   :'),
+                                        title: Text(tgl_lahir.text),
+                                      ),
+                                      ListTile(
+                                        leading : Text('No.Telepon       :'),
+                                        title: Text(no_telp.text),
+                                      ),
+                                      ListTile(
+                                        leading : Text('Jenis Pasien       :'),
+                                        title: Text(jenis_pasien.text),
+                                      ),
+                                      ListTile(
+                                        title: Text(
+                                          'Informasi Dokter',
+                                          style: TextStyle(
+                                              color: HexColor('#ed1c24'),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18
+                                          ),
+                                          textAlign: TextAlign.center,
                                         ),
-                                        child: Text(
-                                          "Kirim",
-                                          style: TextStyle(color: HexColor('#ffffff')),
-                                        ),
-                                        color: HexColor('#ed1c24'),
-                                        onPressed: () async {
-                                          if (formKey.currentState!.validate()) {
-                                            await Database.addItem(
-                                              nama: nama_pasien.text,
-                                              lahir: tgl_lahir.text,
-                                              ponsel: no_telp.text,
-                                              asuransi: jenis_pasien.text,
-                                              spesialis: jenis_spesialis.text,
-                                              dokter: nama_dokter.text,
-                                              tanggal: janji_temu.text,
-                                              waktu: waktu_janji.text,
-                                            );
-                                            showDialog(
-                                              context: context,
-                                              builder: (context) => new AlertDialog(
-                                                title: Text('Janji berhasil dibuat, tunggu beberapa saat kami akan menghubungi anda segera'),
-                                                actions: [
-                                                  TextButton(
-                                                    child: Text(
-                                                      'Close',
-                                                      style: TextStyle(
-                                                        color: HexColor('#ed1c24'),
-                                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      ListTile(
+                                        leading : Text('Spesialis           :'),
+                                        title: Text(jenis_spesialis.text),
+                                      ),
+                                      ListTile(
+                                        leading : Text('Nama Dokter    :'),
+                                        title: Text(nama_dokter.text),
+                                      ),
+                                      ListTile(
+                                        leading : Text('Janji Temu        :'),
+                                        title: Text(janji_temu.text),
+                                      ),
+                                      ListTile(
+                                        leading : Text('Waktu Temu      :'),
+                                        title: Text(waktu_janji.text),
+                                      ),
+                                      ListTile(
+                                        title: RaisedButton(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(15.0),
+                                          ),
+                                          child: Text(
+                                            "Kirim",
+                                            style: TextStyle(color: HexColor('#ffffff')),
+                                          ),
+                                          color: HexColor('#ed1c24'),
+                                          onPressed: () async {
+                                            if (formKey.currentState!.validate()) {
+                                              await Database.addItem(
+                                                nama: nama_pasien.text,
+                                                lahir: tgl_lahir.text,
+                                                ponsel: no_telp.text,
+                                                asuransi: jenis_pasien.text,
+                                                spesialis: jenis_spesialis.text,
+                                                dokter: nama_dokter.text,
+                                                tanggal: janji_temu.text,
+                                                waktu: waktu_janji.text,
+                                              );
+                                              showDialog(
+                                                context: context,
+                                                builder: (context) => new AlertDialog(
+                                                  title: Text('Janji berhasil dibuat, tunggu beberapa saat kami akan menghubungi anda segera'),
+                                                  actions: [
+                                                    TextButton(
+                                                      child: Text(
+                                                        'Close',
+                                                        style: TextStyle(
+                                                          color: HexColor('#ed1c24'),
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
                                                       ),
+                                                      onPressed: () {
+                                                        Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: WidgetView(user: user,)));
+                                                      },
                                                     ),
-                                                    onPressed: () {
-                                                      Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: WidgetView(user: user,)));
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          }
-                                        },
+                                                  ],
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               );
                             },

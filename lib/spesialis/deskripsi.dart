@@ -292,7 +292,7 @@ class DeskripsiDokter extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 2.5),
+                                  margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 15),
                                   child: Card(
                                     color: HexColor('#ed1c24'),
                                     shape: RoundedRectangleBorder(
