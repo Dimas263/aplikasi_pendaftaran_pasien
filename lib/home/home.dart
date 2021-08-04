@@ -1,6 +1,5 @@
 import 'package:aplikasi_pendaftaran_pasien/database/spesialis.dart';
 import 'package:aplikasi_pendaftaran_pasien/home/hospital.dart';
-import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/dokter.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:badges/badges.dart';
@@ -355,58 +354,60 @@ class _HomeViewState extends State<HomeView> {
               ),
               Container(
                 margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
-                child: SingleChildScrollView(
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0.0),
-                    ),
-                    color: HexColor('#ffffff'),
-                    elevation: 5.0,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
-                            child: Text(
-                              'Spesialis',
-                              style: TextStyle(
-                                  color: HexColor('#005194'),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
-                              ),
-                              //textAlign: TextAlign.left,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0.0),
+                  ),
+                  color: HexColor('#ffffff'),
+                  elevation: 5.0,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
+                          child: Text(
+                            'Spesialis',
+                            style: TextStyle(
+                                color: HexColor('#005194'),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18
                             ),
+                            //textAlign: TextAlign.left,
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
-                            child: StreamBuilder<QuerySnapshot>(
-                              stream: Cikarang.read_nama_spesialis_limit(),
-                              builder: (context, snapshot) {
-                                if (snapshot.hasError) {
-                                  return Text(
-                                    'Error',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: HexColor('#ed1c24'),
-                                    ),
-                                  );
-                                }
-                                else if (snapshot.hasData || snapshot.data != null) {
-                                  return ListView.separated(
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    separatorBuilder: (context, index) => SizedBox(height: 0.0),
-                                    itemCount: snapshot.data!.docs.length,
-                                    itemBuilder: (context, index) {
-                                      var noteInfo = snapshot.data!.docs[index].data();
-                                      String nama = noteInfo['nama'];
-                                      String gambar = noteInfo['gambar'];
-                                      String jumlah = noteInfo['jumlah'];
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
+                          child: StreamBuilder<QuerySnapshot>(
+                            stream: Cikarang.read_nama_spesialis_limit(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasError) {
+                                return Text(
+                                  'Error',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: HexColor('#ed1c24'),
+                                  ),
+                                );
+                              }
+                              else if (snapshot.hasData || snapshot.data != null) {
+                                return ListView.separated(
+                                  scrollDirection: Axis.vertical,
+                                  shrinkWrap: true,
+                                  physics: const ClampingScrollPhysics(),
+                                  separatorBuilder: (context, index) => SizedBox(height: 0.0),
+                                  itemCount: snapshot.data!.docs.length,
+                                  itemBuilder: (context, index) {
+                                    var noteInfo = snapshot.data!.docs[index].data();
+                                    String nama = noteInfo['nama'];
+                                    String gambar = noteInfo['gambar'];
+                                    String jumlah = noteInfo['jumlah'];
 
-                                      return ListTile(
+                                    return Card(
+                                      elevation: 3,
+                                      child: ListTile(
                                         onTap: () {
                                           Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: nama)));
                                         },
@@ -424,89 +425,40 @@ class _HomeViewState extends State<HomeView> {
                                           ),
                                           badgeColor: HexColor('#ed1c24'),
                                         ),
-                                      );
-                                    },
-                                  );
-                                }
-
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      HexColor('#ed1c24'),
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                          /*
-                        Container(
-                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: HexColor('#ffffff'),
-                                elevation: 5.0,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  splashColor: HexColor('#ed1c24'),
-                                  onTap: () {
-                                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: 'umum')));
+                                      ),
+                                    );
                                   },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                                        child: CircleAvatar(
-                                          backgroundColor: HexColor('#005194'),
-                                          radius: 25,
-                                          child: Image.network('https://img.icons8.com/color/240/000000/doctor-male--v1.png'),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
-                                        child: Text(
-                                          'Umum',
-                                          style: TextStyle(
-                                              color: HexColor('#005194'),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
+                                );
+                              }
+
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    HexColor('#ed1c24'),
                                   ),
                                 ),
-                              ),
-                            ],
+                              );
+                            },
                           ),
                         ),
-                        */
-                          Container(
-                            margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
-                            child: ListTile(
-                              onTap: () {
-                                Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: SpesialisView()));
-                              },
-                              title: Text(
-                                'Lihat Selengkapnya',
-                                style: TextStyle(
-                                    color: HexColor('#005194'),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),
-                                textAlign: TextAlign.center,
+                        Container(
+                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
+                          child: ListTile(
+                            onTap: () {
+                              Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: SpesialisView()));
+                            },
+                            title: Text(
+                              'Lihat Selengkapnya',
+                              style: TextStyle(
+                                  color: HexColor('#005194'),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18
                               ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

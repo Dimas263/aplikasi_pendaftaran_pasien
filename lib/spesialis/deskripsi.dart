@@ -111,6 +111,7 @@ class DeskripsiDokter extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       color: HexColor('#ed1c24'),
                                     ),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                                 Container(
@@ -315,10 +316,10 @@ class DeskripsiDokter extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 5),
+                                  margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 15),
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 5),
+                                  margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 15),
                                 ),
                                 Container(
                                   margin: const EdgeInsets.only(top: 25, right: 25, left: 25, bottom: 5),
