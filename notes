@@ -7,7 +7,7 @@ flutter run -d chrome --no-sound-null-safety --web-renderer html
 flutter build apk --release --no-sound-null-safety
 
 #Flutter IOS
-flutter build ipa --release --no-sound-null-safety
+flutter build ios --release --no-sound-null-safety
 
 #Keytool
 keytool -exportcert -list -v -alias androiddebugkey -keystore C:\Users\dwipu\.android\debug.keystore
