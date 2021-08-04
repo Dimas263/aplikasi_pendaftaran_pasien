@@ -3,8 +3,11 @@
 #Flutter Web
 flutter run -d chrome --no-sound-null-safety --web-renderer html
 
-#Flutter Build
+#Flutter Android
 flutter build apk --release --no-sound-null-safety
+
+#Flutter IOS
+flutter build ipa --release --no-sound-null-safety
 
 #Keytool
 keytool -exportcert -list -v -alias androiddebugkey -keystore C:\Users\dwipu\.android\debug.keystore
@@ -13,3 +16,21 @@ keytool -exportcert -list -v -alias androiddebugkey -keystore C:\Users\dwipu\.an
 - keytool -list -v -keystore debug.keystore
 - keytool -genkey -v -keystore debug.keystore -alias androiddebugkey -keyalg RSA -validity 10000
 - keytool -list -v -keystore debug.keystore
+
+#Codemagic
+  -pre-build
+  #!/bin/sh
+  echo $ANDROID_FIREBASE_SECRET | base64 --decode > $FCI_BUILD_DIR/android/app/google-services.json
+
+  echo "Listing android Directory to confirm the google-services.json is there! "
+  ls android/app/
+
+  echo $IOS_FIREBASE_SECRET | base64 --decode > $FCI_BUILD_DIR/ios/Runner/GoogleService-Info.plist
+
+  echo "\nListing iOS Directory to confirm the GoogleService-Info.plist is there! "
+  ls ios/Runner/
+
+  -dependency caching
+  $HOME/.gradle/caches
+
+  $HOME/Library/Caches/CocoaPods
