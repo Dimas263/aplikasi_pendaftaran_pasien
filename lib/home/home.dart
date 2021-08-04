@@ -355,90 +355,91 @@ class _HomeViewState extends State<HomeView> {
               ),
               Container(
                 margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0.0),
-                  ),
-                  color: HexColor('#ffffff'),
-                  elevation: 5.0,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
-                          child: Text(
-                            'Spesialis',
-                            style: TextStyle(
-                                color: HexColor('#005194'),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
+                child: SingleChildScrollView(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0.0),
+                    ),
+                    color: HexColor('#ffffff'),
+                    elevation: 5.0,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
+                            child: Text(
+                              'Spesialis',
+                              style: TextStyle(
+                                  color: HexColor('#005194'),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18
+                              ),
+                              //textAlign: TextAlign.left,
                             ),
-                            //textAlign: TextAlign.left,
                           ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
-                          child: StreamBuilder<QuerySnapshot>(
-                            stream: Cikarang.read_nama_spesialis_limit(),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasError) {
-                                return Text(
-                                  'Error',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: HexColor('#ed1c24'),
-                                  ),
-                                );
-                              }
-                              else if (snapshot.hasData || snapshot.data != null) {
-                                return ListView.separated(
-                                  scrollDirection: Axis.vertical,
-                                  shrinkWrap: true,
-                                  separatorBuilder: (context, index) => SizedBox(height: 0.0),
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    var noteInfo = snapshot.data!.docs[index].data();
-                                    String nama = noteInfo['nama'];
-                                    String gambar = noteInfo['gambar'];
-                                    String jumlah = noteInfo['jumlah'];
+                          Container(
+                            margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
+                            child: StreamBuilder<QuerySnapshot>(
+                              stream: Cikarang.read_nama_spesialis_limit(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasError) {
+                                  return Text(
+                                    'Error',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: HexColor('#ed1c24'),
+                                    ),
+                                  );
+                                }
+                                else if (snapshot.hasData || snapshot.data != null) {
+                                  return ListView.separated(
+                                    scrollDirection: Axis.vertical,
+                                    shrinkWrap: true,
+                                    separatorBuilder: (context, index) => SizedBox(height: 0.0),
+                                    itemCount: snapshot.data!.docs.length,
+                                    itemBuilder: (context, index) {
+                                      var noteInfo = snapshot.data!.docs[index].data();
+                                      String nama = noteInfo['nama'];
+                                      String gambar = noteInfo['gambar'];
+                                      String jumlah = noteInfo['jumlah'];
 
-                                    return ListTile(
-                                      onTap: () {
-                                        Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: nama)));
-                                      },
-                                      leading: ClipOval(
-                                        child: Image.network(gambar, height: 50, width: 50, fit: BoxFit.contain,),
-                                      ),
-                                      title: Text(nama),
-                                      trailing: Badge(
-                                        badgeContent: Text(
-                                          jumlah,
-                                          style: TextStyle(
-                                            color: HexColor('#ffffff'),
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                      return ListTile(
+                                        onTap: () {
+                                          Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: DokterList(dokterId: nama)));
+                                        },
+                                        leading: ClipOval(
+                                          child: Image.network(gambar, height: 50, width: 50, fit: BoxFit.contain,),
                                         ),
-                                        badgeColor: HexColor('#ed1c24'),
-                                      ),
-                                    );
-                                  },
-                                );
-                              }
+                                        title: Text(nama),
+                                        trailing: Badge(
+                                          badgeContent: Text(
+                                            jumlah,
+                                            style: TextStyle(
+                                              color: HexColor('#ffffff'),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          badgeColor: HexColor('#ed1c24'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }
 
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    HexColor('#ed1c24'),
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      HexColor('#ed1c24'),
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        /*
+                          /*
                         Container(
                           margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
                           child: Row(
@@ -487,24 +488,25 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         */
-                        Container(
-                          margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
-                          child: ListTile(
-                            onTap: () {
-                              Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: SpesialisView()));
-                            },
-                            title: Text(
-                              'Lihat Selengkapnya',
-                              style: TextStyle(
-                                  color: HexColor('#005194'),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
+                          Container(
+                            margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
+                            child: ListTile(
+                              onTap: () {
+                                Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(seconds: 1), child: SpesialisView()));
+                              },
+                              title: Text(
+                                'Lihat Selengkapnya',
+                                style: TextStyle(
+                                    color: HexColor('#005194'),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

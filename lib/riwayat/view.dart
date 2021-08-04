@@ -1,5 +1,4 @@
 import 'package:aplikasi_pendaftaran_pasien/database/firestore.dart';
-import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
 import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
