@@ -34,11 +34,3 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 ## Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://github.com/Dimas263/aplikasi_pendaftaran_pasien/blob/master/rumahsakit.apk)
-
-## Flutter
-
-Aplikasi ini saya buat dengan menggunakan Flutter
-
-- [How to make android and ios application with Flutter](https://flutter.dev/docs/get-started/codelab)
-- [Example of Flutter project](https://flutter.dev/docs/cookbook)
-- [Online documentation](https://flutter.dev/docs)
