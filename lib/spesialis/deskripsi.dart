@@ -25,7 +25,7 @@ class DeskripsiDokter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Cikarang.read_spesialis(),
+      stream: DatabaseCikarang.read_spesialis(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text(
@@ -301,7 +301,7 @@ class DeskripsiDokter extends StatelessWidget {
                                     ),
                                     child: ListTile(
                                       onTap: () {
-                                        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: JanjiView(dokterId : dokterId, gambardokterId: gambardokterId, spesialisdokterId: spesialisdokterId)));
+                                        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: AuthPasien(dokterId : dokterId, gambardokterId: gambardokterId, spesialisdokterId: spesialisdokterId)));
                                       },
                                       title: Text(
                                         'Buat Janji Dengan Dokter',

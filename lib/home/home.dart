@@ -38,6 +38,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/file/omnicikarang.png"),
@@ -133,12 +134,12 @@ class _HomeViewState extends State<HomeView> {
                 margin: const EdgeInsets.only(top: 15, right: 10, left: 10),
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0.0),
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
                   color: HexColor('#ffffff'),
                   elevation: 5.0,
                   child: InkWell(
-                    borderRadius: BorderRadius.circular(0.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     splashColor: HexColor('#ed1c24'),
                     onTap: () {
                       Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: SpesialisView()));
@@ -352,6 +353,7 @@ class _HomeViewState extends State<HomeView> {
                   ],
                 ),
               ),
+
               Container(
                 margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,),
                 child: Card(
@@ -380,7 +382,7 @@ class _HomeViewState extends State<HomeView> {
                         Container(
                           margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
                           child: StreamBuilder<QuerySnapshot>(
-                            stream: Cikarang.read_nama_spesialis_limit(),
+                            stream: DatabaseCikarang.read_nama_spesialis_limit(),
                             builder: (context, snapshot) {
                               if (snapshot.hasError) {
                                 return Text(
@@ -463,6 +465,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
               ),
+
               Container(
                 margin: const EdgeInsets.only(top:15,right: 10.0,left: 10.0,bottom: 15),
               ),

@@ -11,7 +11,7 @@ class SpesialisView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Cikarang.read_nama_spesialis(),
+      stream: DatabaseCikarang.read_nama_spesialis(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text(
@@ -25,7 +25,13 @@ class SpesialisView extends StatelessWidget {
         }
         else if (snapshot.hasData || snapshot.data != null) {
           return Scaffold(
-
+            appBar: AppBar(
+              brightness: Brightness.dark,
+              elevation: 5.0,
+              centerTitle: true,
+              title: Text('SPESIALIS'),
+              backgroundColor: HexColor('#ed1c24'),
+            ),
             body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
@@ -43,43 +49,7 @@ class SpesialisView extends StatelessWidget {
                   String gambar = noteInfo['gambar'];
                   String jumlah = noteInfo['jumlah'];
 
-                  if (nama == 'Lihat Semua Dokter') {
-                    return Container(
-                      child: Card(
-                        margin: const EdgeInsets.only(top: 5, left: 10, right: 10,bottom: 5),
-                        color: HexColor('#ffffff'),
-                        elevation: 5.0,
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 80,
-                          child: ListTile(
-                            minVerticalPadding: 22,
-                            onTap: () {
-                              Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: AllDokterList()));
-                            },
-                            leading: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 30,
-                              child: Image.network(gambar),
-                            ),
-                            title: Text(nama),
-                            trailing:  Badge(
-                              badgeContent: Text(
-                                jumlah,
-                                style: TextStyle(
-                                  color: HexColor('#ffffff'),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              badgeColor: HexColor('#ed1c24'),
-                              //child:  FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  else if (nama != 'Lihat Semua Dokter'){
+                  if (nama != 'Lihat Semua Dokter') {
                     return Container(
                       child: Card(
                         margin: const EdgeInsets.only(top: 5, left: 10, right: 10,bottom: 5),
@@ -115,6 +85,44 @@ class SpesialisView extends StatelessWidget {
                       ),
                     );
                   }
+                  /*
+                  else if (nama == 'Lihat Semua Dokter'){
+                    return Container(
+                      child: Card(
+                        margin: const EdgeInsets.only(top: 5, left: 10, right: 10,bottom: 5),
+                        color: HexColor('#ffffff'),
+                        elevation: 5.0,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 80,
+                          child: ListTile(
+                            minVerticalPadding: 22,
+                            onTap: () {
+                              Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, duration: Duration(seconds: 1), child: AllDokterList()));
+                            },
+                            leading: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 30,
+                              child: Image.network(gambar),
+                            ),
+                            title: Text(nama),
+                            trailing:  Badge(
+                              badgeContent: Text(
+                                jumlah,
+                                style: TextStyle(
+                                  color: HexColor('#ffffff'),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              badgeColor: HexColor('#ed1c24'),
+                              //child:  FaIcon(FontAwesomeIcons.arrowRight, color: HexColor('#005194'),),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  */
                   return Container();
                 },
               ),

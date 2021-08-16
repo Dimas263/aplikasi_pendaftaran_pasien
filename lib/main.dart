@@ -1,9 +1,7 @@
 import 'package:aplikasi_pendaftaran_pasien/auth/sign_in.dart';
 import 'package:aplikasi_pendaftaran_pasien/home/home.dart';
-import 'package:aplikasi_pendaftaran_pasien/pencarian.dart';
 import 'package:aplikasi_pendaftaran_pasien/profil/view.dart';
 import 'package:aplikasi_pendaftaran_pasien/riwayat/view.dart';
-import 'package:aplikasi_pendaftaran_pasien/spesialis/spesialis.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -59,6 +56,7 @@ const _url_whatsapp = 'http://wa.me/+622129779999?text=Hi';
 void _launchURL_whatsapp() async =>
     await canLaunch(_url_whatsapp) ? await launch(_url_whatsapp) : throw 'Could not launch $_url_whatsapp';
 
+/*
 const _url_website = 'https://www.omni-hospitals.com/';
 void _launchURL_website() async =>
     await canLaunch(_url_website) ? await launch(_url_website) : throw 'Could not launch $_url_website';
@@ -78,7 +76,7 @@ void _launchURL_lokasi_rumah_sakit() async =>
 const _url_ambulan = 'tel:1500108';
 void _launchURL_ambulan() async =>
     await canLaunch(_url_ambulan) ? await launch(_url_ambulan) : throw 'Could not launch $_url_ambulan';
-
+*/
 
 class WidgetView extends StatefulWidget {
   const WidgetView({Key? key, required User user})
@@ -95,7 +93,7 @@ class _WidgetViewState extends State<WidgetView> {
   int selectedIndex = 0;
   final pageOption = [
     HomeView(user: user),
-    SpesialisView(),
+    /*SpesialisView(),*/
     RiwayatView(user: user),
     AboutView(user: user),
   ];
@@ -230,6 +228,8 @@ class _WidgetViewState extends State<WidgetView> {
             ),
           ),
           */
+
+          /*
           Padding(
             padding: EdgeInsets.all(10.0),
             child: Container(
@@ -243,6 +243,7 @@ class _WidgetViewState extends State<WidgetView> {
               ),
             ),
           ),
+          */
         ],
       ),
       drawer: Drawer(
@@ -264,6 +265,16 @@ class _WidgetViewState extends State<WidgetView> {
               accountEmail: Text('omni-hospitals.com'),
               accountName: Text('Omni Hospitals'),
             ),
+            ListTile(
+              onTap: _launchURL_whatsapp,
+              title: Text('Whatsapp'),
+              leading: CircleAvatar(
+                backgroundColor: HexColor('#fbfbf2'),
+                child: Image.asset('images/icon/whatsapp.png'),
+              ),
+            ),
+            Divider(),
+            /*
             ListTile(
               onTap: _launchURL_ambulan,
               title: Text('Panggil Ambulan'),
@@ -318,6 +329,7 @@ class _WidgetViewState extends State<WidgetView> {
               ),
             ),
             Divider(),
+            */
             ListTile(
               onTap:  () => exitDialog(),
               title: Text('Keluar'),
@@ -350,10 +362,12 @@ class _WidgetViewState extends State<WidgetView> {
             iconData: FontAwesomeIcons.home,
             label: 'Home',
           ),
+          /*
           FFNavigationBarItem(
             iconData: FontAwesomeIcons.stethoscope,
             label: 'Spesialis',
           ),
+          */
           FFNavigationBarItem(
             iconData: FontAwesomeIcons.notesMedical,
             label: 'Riwayat',
