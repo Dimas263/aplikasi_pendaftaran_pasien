@@ -61,6 +61,10 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/review/z9.4.jpg" alt="alt text" width="150"/>
 <img src="document/review/z9.6.jpg" alt="alt text" width="150"/>
 
+## Form Pendaftaran
+.
+<img src="document/review/Schedule.png" alt="alt text" width="300"/>
+
 ## Tampilan Pendaftaran Pasien Lama
 .
 <img src="document/review/z9.7.jpg" alt="alt text" width="150"/>
