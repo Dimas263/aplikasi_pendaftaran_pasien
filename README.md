@@ -59,7 +59,6 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/review/z9.2.jpg" alt="alt text" width="150"/>
 <img src="document/review/z9.3.jpg" alt="alt text" width="150"/>
 <img src="document/review/z9.4.jpg" alt="alt text" width="150"/>
-<img src="document/review/z9.5.jpg" alt="alt text" width="150"/>
 <img src="document/review/z9.6.jpg" alt="alt text" width="150"/>
 
 ## Tampilan Pendaftaran Pasien Lama
@@ -84,9 +83,6 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/review/z9.9.9.2.jpg" alt="alt text" width="150"/>
 <img src="document/review/z9.9.9.3.jpg" alt="alt text" width="150"/>
 <img src="document/review/z9.9.9.4.jpg" alt="alt text" width="150"/>
-<img src="document/review/a.jpg" alt="alt text" width="150"/>
-<img src="document/review/a.jpg" alt="alt text" width="150"/>
-<img src="document/review/a.jpg" alt="alt text" width="150"/>
 
 ## Tampilan Profil
 .
