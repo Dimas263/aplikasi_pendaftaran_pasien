@@ -12,85 +12,20 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 ## Tampilan Aplikasi
 .
-<img src="document/a.jpg" alt="alt text" width="150"/>
-<img src="document/b.jpg" alt="alt text" width="150"/>
-<img src="document/c.jpg" alt="alt text" width="150"/>
-<img src="document/d.jpg" alt="alt text" width="150"/>
+<img src="document/a.png" alt="alt text" width="300"/>
+<img src="document/b.png" alt="alt text" width="300"/>
+<img src="document/c.png" alt="alt text" width="300"/>
+<img src="document/d.png" alt="alt text" width="300"/>
+<img src="document/d.png" alt="alt text" width="300"/>
+<img src="document/d.png" alt="alt text" width="300"/>
+<img src="document/d.png" alt="alt text" width="300"/>
 
-## Tampilan Home
-.
-<img src="document/e.jpg" alt="alt text" width="150"/>
-<img src="document/f.jpg" alt="alt text" width="150"/>
-<img src="document/g.jpg" alt="alt text" width="150"/>
-<img src="document/h.jpg" alt="alt text" width="150"/>
-
-## Tampilan Spesialis
-.
-<img src="document/i.jpg" alt="alt text" width="150"/>
-<img src="document/j.jpg" alt="alt text" width="150"/>
-<img src="document/k.jpg" alt="alt text" width="150"/>
-<img src="document/l.jpg" alt="alt text" width="150"/>
-<img src="document/m.jpg" alt="alt text" width="150"/>
-<img src="document/n.jpg" alt="alt text" width="150"/>
-<img src="document/o.jpg" alt="alt text" width="150"/>
-
-## Tampilan Pendaftaran Pasien Baru
-.
-<img src="document/q.jpg" alt="alt text" width="150"/>
-<img src="document/r.jpg" alt="alt text" width="150"/>
-<img src="document/s.jpg" alt="alt text" width="150"/>
-<img src="document/t.jpg" alt="alt text" width="150"/>
-<img src="document/u.jpg" alt="alt text" width="150"/>
-<img src="document/v.jpg" alt="alt text" width="150"/>
-<img src="document/w.jpg" alt="alt text" width="150"/>
-<img src="document/x.jpg" alt="alt text" width="150"/>
-<img src="document/y.jpg" alt="alt text" width="150"/>
-<img src="document/z.jpg" alt="alt text" width="150"/>
-<img src="document/z1.jpg" alt="alt text" width="150"/>
-<img src="document/z2.jpg" alt="alt text" width="150"/>
-<img src="document/z3.jpg" alt="alt text" width="150"/>
-<img src="document/z4.jpg" alt="alt text" width="150"/>
-<img src="document/z5.jpg" alt="alt text" width="150"/>
-<img src="document/z6.jpg" alt="alt text" width="150"/>
-<img src="document/z7.jpg" alt="alt text" width="150"/>
-<img src="document/z8.jpg" alt="alt text" width="150"/>
-<img src="document/z9.jpg" alt="alt text" width="150"/>
-<img src="document/z9.1.jpg" alt="alt text" width="150"/>
-<img src="document/z9.2.jpg" alt="alt text" width="150"/>
-<img src="document/z9.3.jpg" alt="alt text" width="150"/>
-<img src="document/z9.4.jpg" alt="alt text" width="150"/>
-<img src="document/z9.6.jpg" alt="alt text" width="150"/>
+## Flowchart
+<img src="document/flowchart.png" alt="alt text" width="300"/>
 
 ## Form Pendaftaran
 .
 <img src="document/Schedule.png" alt="alt text" width="300"/>
-
-## Tampilan Pendaftaran Pasien Lama
-.
-<img src="document/z9.7.jpg" alt="alt text" width="150"/>
-<img src="document/z9.8.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.1.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.2.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.3.jpg" alt="alt text" width="150"/>
-
-## Tampilan Side Menu
-.
-<img src="document/z9.9.5.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.7.jpg" alt="alt text" width="150"/>
-
-## Tampilan Riwayat
-.
-<img src="document/z9.9.8.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.9.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.9.1.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.9.2.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.9.3.jpg" alt="alt text" width="150"/>
-<img src="document/z9.9.9.4.jpg" alt="alt text" width="150"/>
-
-## Tampilan Profil
-.
-<img src="document/z9.9.4.jpg" alt="alt text" width="150"/>
 
 ## Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://github.com/Dimas263/aplikasi_pendaftaran_pasien/blob/master/rumahsakit.apk)
