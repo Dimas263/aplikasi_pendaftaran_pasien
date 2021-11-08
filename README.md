@@ -11,27 +11,31 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 - I'm a Student of Information Technology at [University of Gunadarma](https://www.gunadarma.ac.id)
 
 ## Tampilan Aplikasi
+<img src="document/a.png" alt="alt text" width="600"/>
 .
-<img src="document/a.png" alt="alt text" width="300"/>
-<img src="document/b.png" alt="alt text" width="300"/>
+<img src="document/b.png" alt="alt text" width="600"/>
 
-## Tampilan Pendaftaran
-<img src="document/c.png" alt="alt text" width="300"/>
-.
-<img src="document/d.png" alt="alt text" width="300"/>
-.
-<img src="document/e.png" alt="alt text" width="300"/>
-.
-<img src="document/f.png" alt="alt text" width="300"/>
-.
-<img src="document/g.png" alt="alt text" width="300"/>
+## Tampilan Pendaftaran Pasien Baru
+<img src="document/c.png" alt="alt text" width="600"/>
+
+## Tampilan Pendaftaran Pasien Lama
+<img src="document/d.png" alt="alt text" width="600"/>
+
+## Menu Riwayat
+<img src="document/e.png" alt="alt text" width="600"/>
+
+## Side Menu
+<img src="document/f.png" alt="alt text" width="600"/>
+
+## Profil
+<img src="document/g.png" alt="alt text" width="600"/>
 
 ## Flowchart
-<img src="document/flowchart.png" alt="alt text" width="300"/>
+<img src="document/flowchart.png" alt="alt text" width="600"/>
 
 ## Form Pendaftaran
 .
-<img src="document/Schedule.png" alt="alt text" width="300"/>
+<img src="document/Schedule.png" alt="alt text" width="600"/>
 
 ## Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://github.com/Dimas263/aplikasi_pendaftaran_pasien/blob/master/rumahsakit.apk)
