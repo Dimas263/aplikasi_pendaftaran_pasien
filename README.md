@@ -14,10 +14,16 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 .
 <img src="document/a.png" alt="alt text" width="300"/>
 <img src="document/b.png" alt="alt text" width="300"/>
+
+## Tampilan Pendaftaran
 <img src="document/c.png" alt="alt text" width="300"/>
+.
 <img src="document/d.png" alt="alt text" width="300"/>
+.
 <img src="document/d.png" alt="alt text" width="300"/>
+.
 <img src="document/d.png" alt="alt text" width="300"/>
+.
 <img src="document/d.png" alt="alt text" width="300"/>
 
 ## Flowchart
