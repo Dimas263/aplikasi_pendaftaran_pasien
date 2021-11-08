@@ -17,17 +17,16 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 ## Tampilan Pendaftaran Pasien Baru
 <img src="document/c.png" alt="alt text" width="600"/>
-
-## Tampilan Pendaftaran Pasien Lama
+.
 <img src="document/d.png" alt="alt text" width="600"/>
 
-## Menu Riwayat
+## Tampilan Pendaftaran Pasien Lama
 <img src="document/e.png" alt="alt text" width="600"/>
 
-## Side Menu
+## Menu Riwayat
 <img src="document/f.png" alt="alt text" width="600"/>
 
-## Profil
+## Side Menu dan Profil
 <img src="document/g.png" alt="alt text" width="600"/>
 
 ## Flowchart
