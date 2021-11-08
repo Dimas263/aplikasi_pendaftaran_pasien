@@ -20,11 +20,11 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 .
 <img src="document/d.png" alt="alt text" width="300"/>
 .
-<img src="document/d.png" alt="alt text" width="300"/>
+<img src="document/e.png" alt="alt text" width="300"/>
 .
-<img src="document/d.png" alt="alt text" width="300"/>
+<img src="document/f.png" alt="alt text" width="300"/>
 .
-<img src="document/d.png" alt="alt text" width="300"/>
+<img src="document/g.png" alt="alt text" width="300"/>
 
 ## Flowchart
 <img src="document/flowchart.png" alt="alt text" width="300"/>
