@@ -30,13 +30,14 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 ## Side Menu dan Profil
 <img src="document/g.png" alt="alt text" width="600"/>
--->
+
 ## Flowchart
 <img src="document/flowchart.png" alt="alt text" width="600"/>
 
 ## Form Pendaftaran
 .
 <img src="document/Schedule.png" alt="alt text" width="600"/>
+-->
 
 ## Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://github.com/Dimas263/aplikasi_pendaftaran_pasien/blob/master/rumahsakit.apk)
