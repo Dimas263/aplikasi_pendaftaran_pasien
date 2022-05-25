@@ -7,14 +7,16 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 ## Developer
 [Dimas Dwi Putra](https://github.com/Dimas263/)
 
+<!--
 - Contact Me Via [Whatsapp](https://wa.me/+6285811379583)
 - I'm a Student of Information Technology at [University of Gunadarma](https://www.gunadarma.ac.id)
+-->
 
 ## Tampilan Aplikasi
 <img src="document/a.png" alt="alt text" width="600"/>
 .
 <img src="document/b.png" alt="alt text" width="600"/>
-
+<!--
 ## Tampilan Pendaftaran Pasien Baru
 <img src="document/c.png" alt="alt text" width="600"/>
 .
@@ -28,7 +30,7 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
 ## Side Menu dan Profil
 <img src="document/g.png" alt="alt text" width="600"/>
-
+-->
 ## Flowchart
 <img src="document/flowchart.png" alt="alt text" width="600"/>
 
