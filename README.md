@@ -1,40 +1,35 @@
-# Aplikasi_Pendaftaran_Pasien
+# <img src="https://img.icons8.com/external-justicon-flat-justicon/64/undefined/external-hospital-coronavirus-justicon-flat-justicon.png"/> Aplikasi_Pendaftaran_Pasien
 
 Aplikasi pendaftaran pasien di rumah sakit berbasis android dengan flutter dan firebase
 
 Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 
-## Developer
+## <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/undefined/external-developer-coding-kiranshastry-lineal-color-kiranshastry.png"/> Developer
 [Dimas Dwi Putra](https://github.com/Dimas263/)
 
-<!--
-- Contact Me Via [Whatsapp](https://wa.me/+6285811379583)
-- I'm a Student of Information Technology at [University of Gunadarma](https://www.gunadarma.ac.id)
--->
-
-## Tampilan Aplikasi
+## <img src="https://img.icons8.com/color/48/undefined/1-circle--v1.png"/> Tampilan Aplikasi
 <img src="document/a.png" alt="alt text" width="600"/>
 .
 <img src="document/b.png" alt="alt text" width="600"/>
 <!--
-## Tampilan Pendaftaran Pasien Baru
+## <img src="https://img.icons8.com/color/48/undefined/2-circle--v1.png"/> Tampilan Pendaftaran Pasien Baru
 <img src="document/c.png" alt="alt text" width="600"/>
 .
 <img src="document/d.png" alt="alt text" width="600"/>
 
-## Tampilan Pendaftaran Pasien Lama
+## <img src="https://img.icons8.com/color/48/undefined/3-circle--v1.png"/> Tampilan Pendaftaran Pasien Lama
 <img src="document/e.png" alt="alt text" width="600"/>
 
-## Menu Riwayat
+## <img src="https://img.icons8.com/color/48/undefined/4-circle--v1.png"/> Menu Riwayat
 <img src="document/f.png" alt="alt text" width="600"/>
 
-## Side Menu dan Profil
+## <img src="https://img.icons8.com/color/48/undefined/5-circle--v1.png"/> Side Menu dan Profil
 <img src="document/g.png" alt="alt text" width="600"/>
 
-## Flowchart
+## <img src="https://img.icons8.com/color/48/undefined/6-circle--v1.png"/> Flowchart
 <img src="document/flowchart.png" alt="alt text" width="600"/>
 
-## Form Pendaftaran
+## <img src="https://img.icons8.com/color/48/undefined/7-circle--v1.png"/> Form Pendaftaran
 .
 <img src="document/Schedule.png" alt="alt text" width="600"/>
 -->
