@@ -11,6 +11,7 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/a.png" alt="alt text" width="600"/>
 .
 <img src="document/b.png" alt="alt text" width="600"/>
+
 <!--
 ## <img src="https://img.icons8.com/color/48/undefined/2-circle--v1.png"/> Tampilan Pendaftaran Pasien Baru
 <img src="document/c.png" alt="alt text" width="600"/>
@@ -34,7 +35,7 @@ Pada aplikasi ini saya mengambil contoh rumah sakit Omni Hospital
 <img src="document/Schedule.png" alt="alt text" width="600"/>
 -->
 
-## Download Aplikasi
+## <img src="https://img.icons8.com/color/48/undefined/2-circle--v1.png"/> Download Aplikasi
 [Download Aplikasi Pendaftaran Pasien](https://github.com/Dimas263/aplikasi_pendaftaran_pasien/blob/master/rumahsakit.apk)
 
 
